@@ -1,0 +1,88 @@
+﻿<Window
+    x:Class="MalzemeListesi.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    Title="Malzeme Listesi"
+    Width="1000"
+    Height="650"
+    Foreground="White"
+    Style="{StaticResource MaterialDesignWindow}"
+    WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--  ÜST BAR  -->
+        <materialDesign:Card
+            Grid.Row="0"
+            Margin="0,0,0,12"
+            Padding="12">
+
+            <DockPanel>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBox
+                        Grid.Row="0"
+                        Width="518"
+                        HorizontalAlignment="Right"
+                        materialDesign:HintAssist.Hint="Oluşturulma Tarihi"
+                        FontSize="20"
+                        FontWeight="SemiBold" />
+                    <TextBox
+                        Grid.Row="1"
+                        Width="518"
+                        HorizontalAlignment="Right"
+                        materialDesign:HintAssist.Hint="Firma Adı"
+                        FontSize="20"
+                        FontWeight="SemiBold" />
+
+                </Grid>
+            </DockPanel>
+        </materialDesign:Card>
+
+        <!--  İÇERİK  -->
+        <materialDesign:Card Grid.Row="1" Padding="16">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <!--  FORM  -->
+                <StackPanel
+                    Grid.Row="0"
+                    Margin="0,0,0,12"
+                    Orientation="Horizontal">
+
+                    <TextBox
+                        Width="250"
+                        Margin="4"
+                        materialDesign:HintAssist.Hint="Malzeme Adı" />
+
+                    <TextBox
+                        Width="150"
+                        Margin="4"
+                        materialDesign:HintAssist.Hint="Stok" />
+
+                </StackPanel>
+
+                <!--  LİSTE  -->
+                <ListView Grid.Row="1">
+                    <ListViewItem Content="Motor - 12 Adet" />
+                    <ListViewItem Content="Sensör - 5 Adet" />
+                    <ListViewItem Content="Kablo - 200 Metre" />
+                </ListView>
+
+            </Grid>
+        </materialDesign:Card>
+    </Grid>
+</Window>

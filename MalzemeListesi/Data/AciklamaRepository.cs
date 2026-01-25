@@ -1,0 +1,43 @@
+﻿using MalzemeListesi.Models;
+using Microsoft.Data.Sqlite;
+using System.Collections.Generic;
+
+namespace MalzemeListesi.Data
+{
+    public class AciklamaRepository
+    {
+        public void Ekle(string ad)
+        {
+            using var con = Database.GetConnection();
+            con.Open();
+
+            var cmd = con.CreateCommand();
+            cmd.CommandText = "INSERT INTO Aciklama (Ad) VALUES (@ad)";
+            cmd.Parameters.AddWithValue("@ad", ad);
+            cmd.ExecuteNonQuery();
+        }
+
+        public List<Aciklama> TumunuGetir()
+        {
+            var list = new List<Aciklama>();
+
+            using var con = Database.GetConnection();
+            con.Open();
+
+            var cmd = con.CreateCommand();
+            cmd.CommandText = "SELECT Id, Ad FROM Aciklama";
+
+            using var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                list.Add(new Aciklama
+                {
+                    Id = reader.GetInt32(0),
+                    Ad = reader.GetString(1)
+                });
+            }
+
+            return list;
+        }
+    }
+}
