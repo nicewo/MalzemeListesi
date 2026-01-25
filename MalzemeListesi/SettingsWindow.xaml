@@ -1,0 +1,146 @@
+﻿<Window
+    x:Class="MalzemeListesi.SettingsWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:MalzemeListesi"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Malzeme Listesi"
+    Width="1000"
+    Height="650"
+    Background="#FF1F1F1F"
+    Foreground="White"
+    ResizeMode="CanResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None">
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            CaptionHeight="0"
+            CornerRadius="15"
+            GlassFrameThickness="0"
+            ResizeBorderThickness="6" />
+    </WindowChrome.WindowChrome>
+
+    <Grid Margin="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid
+            Grid.Row="0"
+            Background="#1E1E1E"
+            MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <!--  APP TITLE  -->
+            <TextBlock
+                Margin="12,0"
+                VerticalAlignment="Center"
+                FontSize="14"
+                FontWeight="SemiBold"
+                Foreground="White"
+                Text="Malzeme Listesi" />
+
+            <!--  WINDOW BUTTONS  -->
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+
+                <!--  MINIMIZE  -->
+                <Button
+                    Width="46"
+                    Height="40"
+                    Background="Transparent"
+                    BorderBrush="{x:Null}"
+                    Click="Minimize_Click"
+                    Cursor="Hand"
+                    Foreground="White"
+                    MouseEnter="Resize_MouseEnter"
+                    MouseLeave="Resize_MouseLeave"
+                    ToolTip="Küçült">
+
+                    <TextBlock
+                        FontFamily="Segoe MDL2 Assets"
+                        FontSize="15"
+                        Text="&#xE921;" />
+                </Button>
+
+                <!--  MAXIMIZE  -->
+                <Button
+                    Width="46"
+                    Height="40"
+                    Background="Transparent"
+                    BorderBrush="{x:Null}"
+                    Click="Maximize_Click"
+                    Foreground="White"
+                    MouseEnter="Resize_MouseEnter"
+                    MouseLeave="Resize_MouseLeave"
+                    ToolTip="Büyüt">
+
+                    <TextBlock
+                        FontFamily="Segoe MDL2 Assets"
+                        FontSize="15"
+                        Text="&#xE922;" />
+                </Button>
+
+                <!--  CLOSE  -->
+                <Button
+                    Width="46"
+                    Height="40"
+                    Background="Transparent"
+                    BorderBrush="{x:Null}"
+                    Click="Close_Click"
+                    Foreground="White"
+                    MouseEnter="Close_MouseEnter"
+                    MouseLeave="Close_MouseLeave"
+                    ToolTip="Kapat">
+
+                    <TextBlock
+                        FontFamily="Segoe MDL2 Assets"
+                        FontSize="15"
+                        Text="&#xE8BB;" />
+                </Button>
+
+            </StackPanel>
+        </Grid>
+
+
+        <!--  İÇERİK  -->
+        <materialDesign:Card
+            Grid.Row="1"
+            Margin="10,12,10,12"
+            Padding="16">
+
+            <Grid>
+
+                <StackPanel>
+
+                    <TextBlock
+                        Margin="0,0,0,16"
+                        FontSize="18"
+                        FontWeight="SemiBold"
+                        Text="Ayarlar" />
+
+                    <!--  PDF IMPORT  -->
+                    <Button
+                        Height="40"
+                        Margin="0,0,0,12"
+                        Click="ImportPdf_Click"
+                        Content="PDF'den Veritabanını Güncelle" />
+
+                    <TextBlock
+                        Foreground="Gray"
+                        Text="Bu işlem, seçilen PDF içindeki malzemeleri veritabanına ekler veya günceller."
+                        TextWrapping="Wrap" />
+
+                </StackPanel>
+
+
+            </Grid>
+        </materialDesign:Card>
+    </Grid>
+</Window>
