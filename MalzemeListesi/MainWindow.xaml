@@ -62,25 +62,29 @@
                     Grid.Row="0"
                     Margin="0,0,0,12"
                     Orientation="Horizontal">
-
                     <TextBox
                         Width="250"
                         Margin="4"
-                        materialDesign:HintAssist.Hint="Malzeme Adı" />
+                        materialDesign:HintAssist.Hint="Marka" />
+                    <TextBox
+                        Width="250"
+                        Margin="4"
+                        materialDesign:HintAssist.Hint="Model" />
 
                     <TextBox
                         Width="150"
                         Margin="4"
+                        materialDesign:HintAssist.Hint="Açıklama" />
+                    <TextBox
+                        Width="250"
+                        Margin="4"
                         materialDesign:HintAssist.Hint="Stok" />
-
+                    <TextBox
+                        Width="250"
+                        Margin="4"
+                        materialDesign:HintAssist.Hint="Birim" />
                 </StackPanel>
 
-                <!--  LİSTE  -->
-                <ListView Grid.Row="1">
-                    <ListViewItem Content="Motor - 12 Adet" />
-                    <ListViewItem Content="Sensör - 5 Adet" />
-                    <ListViewItem Content="Kablo - 200 Metre" />
-                </ListView>
 
             </Grid>
         </materialDesign:Card>
